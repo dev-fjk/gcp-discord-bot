@@ -46,7 +46,7 @@ public class DiscordDao {
         } catch (final Exception e) {
             // GCPのローカル上でしか使わないので スタックトレースは全部出す
             e.printStackTrace();
-            throw new RuntimeException("Discordとの接続に失敗しました。");
+            throw new RuntimeException("Discordとの接続に失敗しました");
         }
 
         log.info("Discord Botとの接続に成功しました");
