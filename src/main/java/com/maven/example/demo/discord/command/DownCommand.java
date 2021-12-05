@@ -29,8 +29,8 @@ public class DownCommand extends Command {
     @Override
     public void execute(CommandEvent event) {
 
-        event.reply("Minecraftサーバーを停止します。");
-        event.reply("停止完了通知が来るまで他のコマンドを実行しないでください。");
+        event.reply("Minecraftサーバーを停止します");
+        event.reply("停止完了通知が来るまで他のコマンドを実行しないでください");
 
         // 実行するコマンドの作成
         // example gcloud compute instances start minecraft-multi-server --project stoked-sanctum-334108 --zone asia-northeast1-b
@@ -49,7 +49,7 @@ public class DownCommand extends Command {
             Process p = runtime.exec(commandBuilder.toString());
             p.waitFor();
             p.destroy();
-            event.reply("Minecraftサーバーを停止しました。");
+            event.reply("Minecraftサーバーを停止しました");
         } catch (Exception e) {
             e.printStackTrace();
             event.reply("Minecraftサーバーが停止できませんでした。 GCP上から手動で停止してください");

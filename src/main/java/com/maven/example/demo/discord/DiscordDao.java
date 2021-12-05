@@ -37,7 +37,7 @@ public class DiscordDao {
      */
     public void connectToDiscordBot() {
 
-        log.info("Discordとの接続処理を開始します。");
+        log.info("Discordとの接続処理を開始します");
 
         try {
             JDABuilder.createDefault(discordConfig.getToken())
@@ -49,7 +49,7 @@ public class DiscordDao {
             throw new RuntimeException("Discordとの接続に失敗しました。");
         }
 
-        log.info("Discord Botとの接続に成功しました。");
+        log.info("Discord Botとの接続に成功しました");
     }
 
     /**
