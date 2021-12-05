@@ -1,4 +1,4 @@
-package com.maven.example.demo.discord;
+package com.maven.example.demo.discord.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

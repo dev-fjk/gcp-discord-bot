@@ -3,7 +3,10 @@ package com.maven.example.demo.discord;
 
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import com.maven.example.demo.discord.command.BuildCommand;
+import com.maven.example.demo.discord.command.DownCommand;
 import com.maven.example.demo.discord.command.HelloCommand;
+import com.maven.example.demo.discord.config.DiscordConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDABuilder;
@@ -19,9 +22,15 @@ import org.springframework.stereotype.Controller;
 @RequiredArgsConstructor
 public class DiscordDao {
 
+    private static final String prefix = "!";
+
+    // Constructor Dependency Injection
     private final DiscordConfig discordConfig;
 
-    private static final String prefix = "!";
+    // commands
+    private final HelloCommand helloCommand;
+    private final BuildCommand buildCommand;
+    private final DownCommand downCommand;
 
     /**
      * DiscordBotとの接続と立ち上げを行う
@@ -51,8 +60,10 @@ public class DiscordDao {
                 .setOwnerId(discordConfig.getOwnerId())
                 .setPrefix(prefix)
                 .setStatus(OnlineStatus.ONLINE)
-                .setActivity(Activity.listening("DiscordBot"))
-                .addCommand(new HelloCommand())
+                .setActivity(Activity.playing("Discord bot to MineCraft"))
+                .addCommand(helloCommand)
+                .addCommand(buildCommand)
+                .addCommand(downCommand)
                 .build();
     }
 }
