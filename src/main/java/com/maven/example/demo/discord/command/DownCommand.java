@@ -21,7 +21,11 @@ public class DownCommand extends Command {
         this.gcpConfig = gcpConfig;
     }
 
-    // コマンドを実行したときに呼ばれるメソッド
+    /**
+     * GCEのインすタウンスの停止を行う
+     *
+     * @param event : commandEvent
+     */
     @Override
     public void execute(CommandEvent event) {
 
@@ -42,8 +46,7 @@ public class DownCommand extends Command {
 
         try {
             Runtime runtime = Runtime.getRuntime();
-            Process p = runtime.exec
-                    (commandBuilder.toString());
+            Process p = runtime.exec(commandBuilder.toString());
             p.waitFor();
             p.destroy();
             event.reply("Minecraftサーバーを停止しました。");

@@ -33,7 +33,7 @@ public class DiscordDao {
     private final DownCommand downCommand;
 
     /**
-     * DiscordBotとの接続と立ち上げを行う
+     * DiscordBotへの接続と立ち上げを行う
      */
     public void connectToDiscordBot() {
 

@@ -21,6 +21,11 @@ public class BuildCommand extends Command {
         this.gcpConfig = gcpConfig;
     }
 
+    /**
+     * GCEのインすタウンスの起動を行う
+     *
+     * @param event : commandEvent
+     */
     @Override
     public void execute(CommandEvent event) {
 
@@ -41,8 +46,7 @@ public class BuildCommand extends Command {
 
         try {
             Runtime runtime = Runtime.getRuntime();
-            Process p = runtime.exec
-                    (commandBuilder.toString());
+            Process p = runtime.exec(commandBuilder.toString());
             p.waitFor();
             p.destroy();
             event.reply("Minecraftサーバーを起動しました。");
