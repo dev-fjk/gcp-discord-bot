@@ -12,5 +12,5 @@ logging:
 
 extension:
   discord:
-    ownerId: dummyId
-    token: dummyToken
+    ownerId: ${ownerId}
+    token: ${token}
