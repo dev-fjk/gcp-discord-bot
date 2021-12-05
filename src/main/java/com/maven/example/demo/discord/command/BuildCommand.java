@@ -22,7 +22,7 @@ public class BuildCommand extends Command {
     }
 
     /**
-     * GCEのインすタウンスの起動を行う
+     * GCEのインスタンスの起動を行う
      *
      * @param event : commandEvent
      */
