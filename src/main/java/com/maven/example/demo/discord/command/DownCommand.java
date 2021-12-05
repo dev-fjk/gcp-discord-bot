@@ -24,12 +24,13 @@ public class DownCommand extends Command {
     // コマンドを実行したときに呼ばれるメソッド
     @Override
     public void execute(CommandEvent event) {
+
         event.reply("Minecraftサーバーを停止します。");
         event.reply("停止完了通知が来るまで他のコマンドを実行しないでください。");
 
         // 実行するコマンドの作成
         // example gcloud compute instances start minecraft-multi-server --project stoked-sanctum-334108 --zone asia-northeast1-b
-        // TODO computeの前　--account=<サービスアカウントID>　を指定する必要あり？
+        // TODO computeの前　--account=<サービスアカウントID>　を指定する必要あり？ (同じアカウント使うなら不要?)
         final StringBuilder commandBuilder = new StringBuilder();
         commandBuilder.append("gcloud compute instances stop ");
         commandBuilder.append(gcpConfig.getInstanceName());
@@ -41,13 +42,10 @@ public class DownCommand extends Command {
 
         try {
             Runtime runtime = Runtime.getRuntime();
-
-            // TODO computeの前　--account=<サービスアカウントID>　を指定する必要あり？
-            // 同じアカウント上で使うなら不要かも
             Process p = runtime.exec
                     (commandBuilder.toString());
-            p.waitFor(); // プロセス終了を待つ
-            p.destroy(); // プロセスを明確に終了させ、資源を回収
+            p.waitFor();
+            p.destroy();
             event.reply("Minecraftサーバーを停止しました。");
         } catch (Exception e) {
             e.printStackTrace();

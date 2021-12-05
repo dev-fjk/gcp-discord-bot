@@ -41,7 +41,6 @@ public class BuildCommand extends Command {
 
         try {
             Runtime runtime = Runtime.getRuntime();
-            // 同じアカウント上で使うなら不要かも
             Process p = runtime.exec
                     (commandBuilder.toString());
             p.waitFor();
