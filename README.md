@@ -1,8 +1,11 @@
-# spring-maven-template
+# gcp-discord-bot
+GCEのインスタンス起動、停止を DiscordBotで行えるようにする
 
-Maven使用時のテンプレートリポジトリ
+GCPでの Linux OSを積んだインスタンス上で動作させることを前提<br>
+また、制御対象のインスタンスと同じプロジェクトで稼働している GCEインスタンス上で動作させるアプリケーションという想定
 
-GCPでの Linux OSを積んだインスタンス上で動作させることを前提としている
+※ Always freeなどの低スぺインスタンス上で動作させると良い<br>
+※ 秘密鍵設定とか入れていないので他人のアカウントのGCEの制御はできない気がする
 
 ## 事前にOS側に導入しておく必要があるもの
 
@@ -31,8 +34,17 @@ ${zoneName}　# 制御対象のGCEインスタンスが稼働しているリー�
 mvn package
 ~~~
 
-- ③ 以下のコマンドを実行し Spring Boot アプリケーションを実行する
+- ③ そのまま以下のコマンドを実行し Spring Boot アプリケーションを実行する
 
 ~~~
-java -jar gcp-discord-bot.jar を実行する
+cd /target
+java -jar gcp-discord-bot.jar
+~~~
+
+## 使用可能コマンド一覧
+~~~
+!hello - あいさつするだけ デバッグ用コマンド
+!build - GCE インスタンスの起動を行います。 Minecraftを終了する際は必ず downコマンドを実行してください。
+!down - GCE インスタンスの停止を行います。 Minecraftを終了する際は必ず 本コマンドを実行してください
+!help - 各コマンドの説明が見れる
 ~~~
