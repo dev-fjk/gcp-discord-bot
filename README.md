@@ -31,8 +31,9 @@ ${zoneName}　# 制御対象のGCEインスタンスが稼働しているリー�
 mvn package
 ~~~
 
-- ③ 以下のコマンドを実行し Spring Boot アプリケーションを実行する
+- ③ そのまま以下のコマンドを実行し Spring Boot アプリケーションを実行する
 
 ~~~
-java -jar gcp-discord-bot.jar を実行する
+cd /target
+java -jar gcp-discord-bot.jar
 ~~~
